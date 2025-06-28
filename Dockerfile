@@ -1,11 +1,10 @@
+FROM node:18
 
-FROM node:18-slim
-
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y ffmpeg
 
 WORKDIR /app
 
-COPY package.json .
+COPY package.json ./
 RUN npm install
 
 COPY . .
